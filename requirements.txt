@@ -1,0 +1,4 @@
+lettuce
+lettuce_webdriver
+nose
+browserstack-local
