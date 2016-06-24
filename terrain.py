@@ -47,35 +47,3 @@ def setup_browser(feature):
 def cleanup_browser(feature):
     world.browser.quit()
     stop_local()
-
-
-
-
-
-
-
-
-
-
-# @before.each_feature
-# def setup_browser(feature):
-#     if 'parallel' in test_type.lower():
-#         world.browser = create_driver()
-
-# @after.each_feature
-# def cleanup_browser(feature):
-#     if 'parallel' in test_type.lower():
-#         world.browser.quit()
-
-# @before.all
-# def setup_local():
-#     if 'local' in test_type.lower():
-#         start_local()
-#     if 'parallel' not in test_type.lower():
-#         world.browser = create_driver()
-
-# @after.all
-# def cleanup_local(total):
-#     stop_local()
-#     if 'parallel' not in test_type.lower():
-#         world.browser.quit()
