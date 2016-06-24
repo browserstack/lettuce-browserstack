@@ -29,3 +29,10 @@ def run(args):
             p = multiprocessing.Process(target=run_lettuce_test, args=(args[0], "single", i))
             jobs.append(p)
             p.start()
+
+@task
+def test():
+    """Run all tests"""
+    sh("paver run single")
+    sh("paver run local")
+    sh("paver run parallel")
