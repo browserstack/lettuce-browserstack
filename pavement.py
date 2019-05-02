@@ -1,6 +1,7 @@
 from paver.easy import *
 from paver.setuputils import setup
 import multiprocessing
+import platform
 
 setup(
     name = "lettuce-browserstack",
@@ -15,7 +16,10 @@ setup(
 )
 
 def run_lettuce_test(config, feature, task_id=0):
-    sh('CONFIG_FILE=config/%s.json TASK_ID=%s lettuce features/%s.feature' % (config, task_id, feature))
+    if platform.system() == "Windows":
+        sh('cmd /C "set CONFIG_FILE=config/%s.json && set TASK_ID=%s && lettuce features/%s.feature"' % (config, task_id, feature))
+    else:
+        sh('CONFIG_FILE=config/%s.json TASK_ID=%s lettuce features/%s.feature' % (config, task_id, feature))
 
 @task
 @consume_nargs(1)
