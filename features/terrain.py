@@ -33,7 +33,7 @@ def stop_local():
 @before.each_feature
 def setup_browser(feature):
     desired_capabilities = CONFIG['environments'][TASK_ID]
-
+    desired_capabilities['browserstack.source'] = 'lettuce:sample-master:v1.0'
     for key in CONFIG["capabilities"]:
         if key not in desired_capabilities:
             desired_capabilities[key] = CONFIG["capabilities"][key]
