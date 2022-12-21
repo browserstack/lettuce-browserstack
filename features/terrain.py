@@ -43,7 +43,7 @@ def setup_browser(feature):
 
     world.browser = webdriver.Remote(
         desired_capabilities=desired_capabilities,
-        command_executor="http://%s:%s@%s/wd/hub" % (BROWSERSTACK_USERNAME, BROWSERSTACK_ACCESS_KEY, CONFIG['server'])
+        command_executor="https://%s:%s@%s/wd/hub" % (BROWSERSTACK_USERNAME, BROWSERSTACK_ACCESS_KEY, CONFIG['server'])
     )
 
 @after.each_feature
